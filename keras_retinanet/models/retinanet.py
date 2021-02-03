@@ -73,6 +73,7 @@ def default_classification_model(
     
     #print('yolo')
     # reshape output and apply sigmoid
+    #adding batch normalization and dropout
     if keras.backend.image_data_format() == 'channels_first':
         outputs = keras.layers.Permute((2, 3, 1), name='pyramid_classification_permute')(outputs)
     outputs = keras.layers.Reshape((-1, num_classes), name='pyramid_classification_reshape')(outputs)
